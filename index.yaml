@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  focus-template:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-12-31T15:07:07.327753484Z"
+    description: A chart for the creation of a FOCUS config that contains pricing
+      information only
+    digest: c1ecb6b08c2cf2c46d1aa71c49a726b3dbd96422183389298c4060d86ab73f22
+    name: focus-template
+    type: application
+    urls:
+    - focus-template-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-12-31T15:07:07.327759224Z"
