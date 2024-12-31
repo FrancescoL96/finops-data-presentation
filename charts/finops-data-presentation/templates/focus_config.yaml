@@ -4,5 +4,5 @@ metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
 spec:
   focusSpec: 
-    listUnitPrice: {{ lookup "krateo.finops.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) | get "status.rating" | default 0 }}
+    listUnitPrice: {{ (lookup "krateo.finops.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) ).status.rating | default 0 }}
     pricingUnit: "Hours"
