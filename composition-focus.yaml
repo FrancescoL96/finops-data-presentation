@@ -7,6 +7,6 @@ metadata:
   namespace: krateo-test
 spec:
   chart:
-    
-    url: 
-    version: "0.1.0"
+    repo: focus-template
+    url: https://francescol96.github.io/finops-data-presentation/
+    version: "0.1.3"

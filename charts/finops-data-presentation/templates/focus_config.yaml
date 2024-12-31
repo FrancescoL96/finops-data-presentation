@@ -1,8 +1,27 @@
+{{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
+
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
 spec:
-  focusSpec: 
-    listUnitPrice: {{ (lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) ).status.rating | default 0 }}
+  focusSpec:
+    listUnitPrice: {{- if and $resource (hasKey $resource "status") (hasKey $resource.status "Rating") }}
+      {{- $resource.status.Rating }}
+    {{- else }}
+      -1
+    {{- end }}
     pricingUnit: "Hours"
+    billedCost: 0.0
+    billingCurrency: "USD"
+    billingPeriodEnd: "2024-01-01T00:00:00+02:00"
+    billingPeriodStart: "2024-01-01T00:00:00+02:00"
+    chargeCategory: "usage"
+    chargeDescription: "CDC update"
+    chargePeriodEnd: "2024-01-01T00:00:00+02:00"
+    chargePeriodStart: "2024-01-01T00:00:00+02:00"
+    consumedQuantity: 0
+    consumedUnit: "Hours"
+    contractedCost: 0
+    invoiceIssuerName: "AWS"
+    serviceCategory: "Compute"
