@@ -4,7 +4,7 @@ metadata:
   annotations:
      "krateo.io/connector-verbose": "true"
   name: focus-composition
-  namespace: krateo-test
+  namespace: krateo-system
 spec:
   chart:
     repo: focus-template
