@@ -1,8 +1,0 @@
-apiVersion: finops.krateo.io/v1
-kind: FocusConfig
-metadata:
-  name: {{ include "finops-data-presentation.fullname" . }}
-spec:
-  focusSpec: 
-    listUnitPrice: {{ (lookup "krateo.finops.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) ).status.rating | default 0 }}
-    pricingUnit: "Hours"

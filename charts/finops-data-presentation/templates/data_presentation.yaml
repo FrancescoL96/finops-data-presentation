@@ -1,6 +1,0 @@
-apiVersion: finops.krateo.io/v1alpha1
-kind: DataPresentationTest
-metadata:
-  name: {{ include "finops-data-presentation.fullname" . }}
-spec:
-  name: {{ .Values.name }}
