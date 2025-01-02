@@ -1,5 +1,5 @@
 {{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
-{{- if and $resource $resource.status $resource.status.rating }}
+{{- if and $resource $resource.status $resource.status.rating $resource.status.name }}
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
@@ -21,4 +21,8 @@ spec:
     contractedCost: 0
     invoiceIssuerName: "AWS"
     serviceCategory: "Compute"
+    serviceName: {{ $resource.status.name }}
+    tags:
+    - key: focus-resource-name
+      value: {{ $resource.status.name }}
 {{- end }}
