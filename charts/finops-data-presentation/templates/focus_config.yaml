@@ -1,16 +1,10 @@
-{{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
-
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
 spec:
   focusSpec:
-    listUnitPrice: {{- if and $resource (hasKey $resource "status") (hasKey $resource.status "Rating") }}
-      {{- $resource.status.Rating }}
-    {{- else }}
-      -1
-    {{- end }}
+    listUnitPrice: 1.1
     pricingUnit: "Hours"
     billedCost: 0.0
     billingCurrency: "USD"
