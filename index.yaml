@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   focus-template:
   - apiVersion: v2
+    appVersion: 0.1.5
+    created: "2025-01-02T13:45:57.83250168Z"
+    description: A chart for the creation of a FOCUS config that contains pricing
+      information only
+    digest: 0137a91d1941d7ff494657f777d679162c53538226569ea0e8333e93b5272869
+    name: focus-template
+    type: application
+    urls:
+    - focus-template-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     appVersion: 0.1.4
     created: "2024-12-31T15:50:26.152547723Z"
     description: A chart for the creation of a FOCUS config that contains pricing
@@ -56,4 +67,4 @@ entries:
     urls:
     - focus-template-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-31T15:50:26.152568511Z"
+generated: "2025-01-02T13:45:57.832515816Z"
