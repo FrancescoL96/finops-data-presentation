@@ -1,4 +1,4 @@
-apiVersion: composition.krateo.io/v0-1-4
+apiVersion: composition.krateo.io/v0-1-7
 kind: FocusTemplate
 metadata:
   name: test

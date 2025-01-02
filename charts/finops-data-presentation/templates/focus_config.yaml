@@ -1,4 +1,4 @@
-{{- $resource := lookup "finops.krateo.io/v1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
+{{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
 {{- if and $resource $resource.status $resource.status.rating }}
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
