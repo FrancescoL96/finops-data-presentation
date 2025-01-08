@@ -1,28 +1,32 @@
 {{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationTest" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
-{{- if and $resource $resource.status $resource.status.rating $resource.status.name }}
+{{- if and $resource $resource.status $resource.status.serviceName $resource.status.unitPrice $resource.status.unitPrice $resource.status.unitOfMeasure $resource.status.serviceFamily $resource.status.currencyCode $resource.status.productName $resource.status.skuId }}
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
 spec:
   focusSpec:
-    listUnitPrice: {{ $resource.status.rating }}
-    pricingUnit: "Hours"
+    availabilityZone: {{ $resource.status.location }}
+    regionName: {{ $resource.status.armRegionName }}
+    listUnitPrice: {{ $resource.status.unitPrice }}
+    pricingUnit: {{ $resource.status.unitOfMeasure }}
     billedCost: 0.0
-    billingCurrency: "USD"
+    billingCurrency: {{ $resource.status.currencyCode }}
     billingPeriodEnd: "2024-01-01T00:00:00+02:00"
     billingPeriodStart: "2024-01-01T00:00:00+02:00"
-    chargeCategory: "usage"
-    chargeDescription: "CDC update"
+    chargeCategory: "Usage"
+    chargeDescription: "Pricing information"
     chargePeriodEnd: "2024-01-01T00:00:00+02:00"
     chargePeriodStart: "2024-01-01T00:00:00+02:00"
     consumedQuantity: 0
-    consumedUnit: "Hours"
+    consumedUnit: {{ $resource.status.unitOfMeasure }}
     contractedCost: 0
-    invoiceIssuerName: "AWS"
-    serviceCategory: "Compute"
-    serviceName: {{ $resource.status.name }}
+    invoiceIssuerName: "Azure"
+    resourceName: {{ $resource.status.productName }}
+    serviceCategory: {{ $resource.status.serviceFamily }}
+    serviceName: {{ $resource.status.serviceName }}
+    skuId: {{ $resource.status.skuId }}
     tags:
     - key: focus-resource-name
-      value: {{ $resource.status.name }}
+      value: {{ $resource.status.productName }}
 {{- end }}

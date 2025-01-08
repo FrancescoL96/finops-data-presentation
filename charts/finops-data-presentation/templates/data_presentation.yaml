@@ -1,6 +1,6 @@
 apiVersion: finops.krateo.io/v1alpha1
-kind: DataPresentationTest
+kind: DataPresentationAzure
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
 spec:
-  name: {{ .Values.name }}
+  $filter: {{ .Values.filter }}
