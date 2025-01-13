@@ -1,4 +1,4 @@
-{{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationAzure" .Release.Namespace "test-focus-template" -}}
+{{- $resource := lookup "finops.krateo.io/v1alpha1" "DataPresentationAzure" .Release.Namespace (include "finops-data-presentation.fullname" .) -}}
 {{- if and $resource $resource.status }}
 apiVersion: finops.krateo.io/v1
 kind: FocusConfig
@@ -33,6 +33,6 @@ spec:
     serviceName: {{ $resource.status.serviceName }}
     skuId: {{ $resource.status.skuId }}
     tags:
-    - key: focus-resource-name
+    - key: {{ .Values.annotationKey }}
       value: {{ $resource.status.armSkuName }}
 {{- end }}
