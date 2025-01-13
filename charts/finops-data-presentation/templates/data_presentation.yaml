@@ -2,7 +2,7 @@ apiVersion: finops.krateo.io/v1alpha1
 kind: DataPresentationAzure
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
-  annotation:
-    krateo-finops-focus-resource: Standard_L48s_v3
+  annotations:
+    krateo-finops-focus-resource: "Standard_L48s_v3"
 spec:
   $filter: {{ .Values.filter }}
