@@ -9,8 +9,8 @@ spec:
     tableName: {{ .Values.scraperConfig.tableName }}
     pollingIntervalHours: {{ .Values.scraperConfig.pollingIntervalHours }}
     scraperDatabaseConfigRef: 
-      name: {{ .Values.scraperConfig.databaseConfig.name }}
-      namespace: {{ .Values.scraperConfig.databaseConfig.namespace }}
+      name: {{ .Values.scraperConfig.scraperDatabaseConfigRef.name }}
+      namespace: {{ .Values.scraperConfig.scraperDatabaseConfigRef.namespace }}
   focusSpec:
     availabilityZone: {{ $resource.status.location }}
     regionName: {{ $resource.status.armRegionName }}
