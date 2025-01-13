@@ -2,7 +2,5 @@ apiVersion: finops.krateo.io/v1alpha1
 kind: DataPresentationAzure
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
-  annotations:
-    krateo-finops-focus-resource: '["Standard_B2ats_v2", "ConsulenteAccenture", "CostoEnergiaElettrica"]'
 spec:
   $filter: {{ .Values.filter }}

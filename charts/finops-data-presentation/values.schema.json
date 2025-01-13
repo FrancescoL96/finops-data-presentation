@@ -13,10 +13,58 @@
       "required": [],
       "title": "global",
       "type": "object"
+    },
+    "scraperConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "pollingIntervalHours": {
+          "default": 1,
+          "required": [],
+          "title": "pollingIntervalHours",
+          "type": "integer"
+        },
+        "scraperDatabaseConfigRef": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "default": "cratedb-config",
+              "required": [],
+              "title": "name",
+              "type": "string"
+            },
+            "namespace": {
+              "default": "krateo-system",
+              "required": [],
+              "title": "namespace",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "title": "scraperDatabaseConfigRef",
+          "type": "object"
+        },
+        "tableName": {
+          "default": "pricing_table",
+          "required": [],
+          "title": "tableName",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tableName",
+        "pollingIntervalHours",
+        "scraperDatabaseConfigRef"
+      ],
+      "title": "scraperConfig",
+      "type": "object"
     }
   },
   "required": [
-    "filter"
+    "filter",
+    "scraperConfig"
   ],
   "type": "object"
 }

@@ -4,9 +4,13 @@ apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
-  annotations:
-    krateo-finops-focus-resource: '["Standard_B2ats_v2"]'
 spec:
+  scraperConfig:
+    tableName: {{ .Values.scraperConfig.tableName }}
+    pollingIntervalHours: {{ .Values.scraperConfig.pollingIntervalHours }}
+    scraperDatabaseConfigRef: 
+      name: {{ .Values.scraperConfig.databaseConfig.name }}
+      namespace: {{ .Values.scraperConfig.databaseConfig.namespace }}
   focusSpec:
     availabilityZone: {{ $resource.status.location }}
     regionName: {{ $resource.status.armRegionName }}
@@ -30,5 +34,5 @@ spec:
     skuId: {{ $resource.status.skuId }}
     tags:
     - key: focus-resource-name
-      value: {{ $resource.status.productName }}
+      value: {{ $resource.status.armSkuName }}
 {{- end }}
