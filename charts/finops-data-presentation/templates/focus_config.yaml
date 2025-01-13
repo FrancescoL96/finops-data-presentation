@@ -4,6 +4,8 @@ apiVersion: finops.krateo.io/v1
 kind: FocusConfig
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
+  annotations:
+    krateo-finops-focus-resource: '["Standard_B2ats_v2"]'
 spec:
   focusSpec:
     availabilityZone: {{ $resource.status.location }}

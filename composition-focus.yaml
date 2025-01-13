@@ -9,4 +9,4 @@ spec:
   chart:
     repo: focus-template
     url: https://francescol96.github.io/finops-data-presentation/
-    version: "0.2.1"
+    version: "0.2.2"
