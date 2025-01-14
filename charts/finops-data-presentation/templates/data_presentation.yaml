@@ -3,6 +3,6 @@ kind: DataPresentationAzure
 metadata:
   name: {{ include "finops-data-presentation.fullname" . }}
   annotations:
-    krateo-finops-focus-resource: "Standard_L48s_v3"
+    krateo-finops-focus-resource: '["Standard_L48s_v3", "ConsulenteAccenture", "CostoEnergiaElettrica"]'
 spec:
   $filter: {{ .Values.filter }}
